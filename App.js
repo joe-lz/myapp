@@ -19,6 +19,8 @@ I18n.translations = {
     greeting: 'Bonjour!',
   },
 };
+import Icon from 'react-native-vector-icons/FontAwesome';
+const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -35,6 +37,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>{I18n.t('greeting')}</Text>
+        {myIcon}
       </View>
     );
   }

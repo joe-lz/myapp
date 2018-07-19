@@ -12,5 +12,4 @@
 - add redux react-redux redux-logger redux-thunk
 - [React Navigation](https://reactnavigation.org/docs/zh-Hans/getting-started.html)
 - [react-native-typography](https://github.com/hectahertz/react-native-typography)
-- [node-vibrant](https://github.com/akfish/node-vibrant/)
 - [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
