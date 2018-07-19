@@ -6,7 +6,7 @@
 - [react-native-admob](https://github.com/sbugert/react-native-admob)
 - [react-native-i18n](https://github.com/AlexanderZaytsev/react-native-i18n)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
-- [react-lottie](http://airbnb.io/lottie/react-native/react-native.html#getting-started)
+- [react-lottie](http://airbnb.io/lottie/react-native/react-native.html#getting-started) 不显示就pod install
 - eslint --init 
 - npm install husky@next --save-dev
 - add redux react-redux redux-logger redux-thunk

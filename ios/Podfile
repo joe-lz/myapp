@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'myapp' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -26,5 +26,9 @@ target 'myapp' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
 
 end

@@ -8,6 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import LottieView from 'lottie-react-native';
+
 import I18n from 'react-native-i18n';
 I18n.fallbacks = true;
 
@@ -30,6 +32,11 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentDidMount() {
+    this.animation.play();
+    // Or set a specific startFrame and endFrame with:
+    // this.animation.play(30, 120);
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -38,6 +45,14 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>{instructions}</Text>
         <Text>{I18n.t('greeting')}</Text>
         {myIcon}
+        <View style={{ width: 300, height: 300 }}>
+          <LottieView
+            ref={animation => {
+              this.animation = animation;
+            }}
+            source={require('./app-stack/files/animations/checked_done_.json')}
+          />
+        </View>
       </View>
     );
   }
@@ -59,5 +74,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });
