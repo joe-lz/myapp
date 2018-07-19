@@ -11,6 +11,7 @@ module.exports = {
         'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
         'react/prefer-stateless-function': 'off',
         'global-require': 'off',
-        'import/prefer-default-export': 'off'
+        'import/prefer-default-export': 'off',
+        'react/prop-types': 'off',
     }
 };

@@ -8,12 +8,14 @@
 
 import React, { Component } from 'react';
 import {
-  Platform, StyleSheet, Text, View,
+  Platform, StyleSheet, Text, View, Button,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-
 import I18n from 'react-native-i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from 'react-redux';
+import { INCREASE_FUNC, DECREASE_FUNC } from './redux/actions/counter';
+
 
 I18n.fallbacks = true;
 
@@ -36,7 +38,7 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   componentDidMount() {
     this.animation.play();
     // Or set a specific startFrame and endFrame with:
@@ -44,6 +46,7 @@ export default class App extends Component<Props> {
   }
 
   render() {
+    const { counter, dispatchIncreaseFunc, dispatchDecreaseFunc } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -67,10 +70,40 @@ export default class App extends Component<Props> {
             source={require('./app-stack/files/animations/checked_done_.json')}
           />
         </View>
+        <Button
+          title="+"
+          onPress={() => {
+            dispatchIncreaseFunc();
+          }}
+        />
+        <Text>
+          {counter}
+        </Text>
+        <Button
+          title="-"
+          onPress={() => {
+            dispatchDecreaseFunc();
+          }}
+        />
       </View>
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    counter: state.counter,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatchIncreaseFunc: data => dispatch(INCREASE_FUNC(data)),
+    dispatchDecreaseFunc: data => dispatch(DECREASE_FUNC(data)),
+  };
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
 
 const styles = StyleSheet.create({
   container: {
