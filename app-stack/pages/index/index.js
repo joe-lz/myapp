@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet, Text, View, Button,
 } from 'react-native';
+import Styled from '../../../styled-components';
 
 type Props = {};
 class PageIndex extends Component<Props> {
@@ -24,6 +25,11 @@ class PageIndex extends Component<Props> {
           title="Go to Details"
           onPress={() => navigation.navigate('PageIndexDetail')}
         />
+        <Styled.View style={styles.temp} bg="green">
+          <Styled.H1 style={styles.H1} light type="primaryText" align="center" bold>
+            cdsc
+          </Styled.H1>
+        </Styled.View>
       </View>
     );
   }

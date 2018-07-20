@@ -11,5 +11,6 @@
 - npm install husky@next --save-dev lint-staged
 - add redux react-redux redux-logger redux-thunk
 - [React Navigation](https://reactnavigation.org/docs/zh-Hans/getting-started.html)
+- [styled-components polish]
 - [react-native-typography](https://github.com/hectahertz/react-native-typography)
 - [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
