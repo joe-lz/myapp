@@ -13,5 +13,6 @@ module.exports = {
         'global-require': 'off',
         'import/prefer-default-export': 'off',
         'react/prop-types': 'off',
+        'import/no-unresolved': 'off',
     }
 };
