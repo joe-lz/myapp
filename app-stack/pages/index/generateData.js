@@ -1,9 +1,19 @@
 import moment from 'moment/min/moment-with-locales';
 import weatherStatusArray from '../../files/weather-data/xiaomi_weather_status';
 
+const sunny = require('../../files/images/weather-status/cloudy.png');
+const cloudy = require('../../files/images/weather-status/cloudy.png');
+
+const getWeatherImage = (weather) => {
+  if (weather === 1) {
+    return sunny;
+  }
+  return cloudy;
+};
+
 moment.locale('zh-cn');
 // 获取今天天气状态
-const getTodayWeatherState = currentWeatherCode => weatherStatusArray.weatherinfo.find(obj => Number(obj.code) === Number(currentWeatherCode)).wea;
+const getWeatherState = currentWeatherCode => weatherStatusArray.weatherinfo.find(obj => Number(obj.code) === Number(currentWeatherCode)).wea;
 // 获取今天空气质量
 const getTodayAqi = aqi => ({
   value: aqi.aqi,
@@ -26,7 +36,8 @@ const generateHourly = (originData) => {
       unit,
       temperature: obj,
       weather: weather.value[index],
-      weatherState: getTodayWeatherState(weather.value[index]),
+      weatherState: getWeatherState(weather.value[index]),
+      weatherImage: getWeatherImage(weather.value[index]),
       wind: wind.value[index],
       aqi: aqi.value[index],
     };
@@ -49,8 +60,12 @@ const generateDaily = (originData) => {
       temperature: temperature.value[index],
       weather: weather.value[index],
       weatherState: {
-        from: getTodayWeatherState(weather.value[index].from),
-        to: getTodayWeatherState(weather.value[index].to),
+        from: getWeatherState(weather.value[index].from),
+        to: getWeatherState(weather.value[index].to),
+      },
+      weatherImage: {
+        from: getWeatherImage(weather.value[index].from),
+        to: getWeatherImage(weather.value[index].to),
       },
       wind: {
         direction: wind.direction.value[index],
@@ -78,7 +93,7 @@ export const getFinalData = (data) => {
   };
   // 获取今天天气状态
   FinalData.today = { ...current };
-  FinalData.today.weatherState = getTodayWeatherState(current.weather);
+  FinalData.today.weatherState = getWeatherState(current.weather);
   FinalData.today.aqi = getTodayAqi(aqi);
   FinalData.today.pubTime = moment(current.pubTime).format('HH:MM'); // 更新时间转换
   // 获得每小时的状况

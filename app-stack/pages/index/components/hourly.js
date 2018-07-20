@@ -20,7 +20,6 @@ export default class Hourly extends Component {
 
   // 接收到prop变化
   componentWillReceiveProps(next) {
-    // const { hourlyData } = this.props;
     const { hourlyData } = next;
     if (hourlyData) {
       this.setState({
@@ -38,7 +37,7 @@ export default class Hourly extends Component {
         <Image
           resizeMode="contain"
           style={styles.hour_temperature_item_image}
-          source={require('../../../files/images/weather/cloudy-small.png')}
+          source={obj.weatherImage}
         />
         <Styled.Pbody style={styles.Pbody} light type="primaryText" align="center" bold>
           {obj.weatherState}

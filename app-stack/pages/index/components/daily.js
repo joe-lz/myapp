@@ -45,7 +45,7 @@ export default class Daily extends Component {
               <Image
                 resizeMode="contain"
                 style={styles.temperature_item_image}
-                source={require('../../../files/images/weather/cloudy-small.png')}
+                source={obj.weatherImage.from}
               />
             </Styled.View>
             <Styled.Pbody style={styles.Pbody}>
