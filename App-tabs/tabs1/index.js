@@ -15,6 +15,9 @@ class Tab1 extends Component<Props> {
         <Text>
           tabs
         </Text>
+        <Text>
+          {moment().fromNow()}
+        </Text>
       </View>
     );
   }
