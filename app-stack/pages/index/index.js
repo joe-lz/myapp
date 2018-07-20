@@ -3,9 +3,16 @@ import {
   StyleSheet, Text, View, Button,
 } from 'react-native';
 import Styled from '../../../styled-components';
+import api from '../../../api';
 
 type Props = {};
 class PageIndex extends Component<Props> {
+  componentDidMount() {
+    api.weather.getWeatherFromXiaomi(101210101).then((res) => {
+      console.log(res);
+    });
+  }
+
   render() {
     const { navigation } = this.props;
     return (
