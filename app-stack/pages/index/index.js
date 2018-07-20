@@ -3,11 +3,11 @@
  * @Author: DongDong
  * @Date: 2018-07-20 14:30:10
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-20 15:02:41
+ * @Last Modified time: 2018-07-20 16:14:33
  */
 
 import {
-  StyleSheet, Image,
+  StyleSheet, Image, StatusBar,
 } from 'react-native';
 import React, { Component } from 'react';
 import moment from 'moment/min/moment-with-locales';
@@ -24,7 +24,6 @@ import Hourly from './components/hourly';
 import Daily from './components/daily';
 import Overview from './components/overview';
 import Detail from './components/detail';
-
 
 type Props = {};
 class PageIndex extends Component<Props> {
@@ -54,7 +53,11 @@ class PageIndex extends Component<Props> {
     const { newRes } = this.state;
     return (
       <Styled.SafeArea style={styles.temp}>
-        <Styled.ScrollView style={styles.container}>
+        <StatusBar
+          backgroundColor="white"
+          barStyle="dark-content"
+        />
+        <Styled.ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
           <Image
             style={styles.weather_img}
             source={require('../../files/images/weather/cloudy.jpg')}
