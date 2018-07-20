@@ -15,5 +15,6 @@ module.exports = {
         'react/prop-types': 'off',
         'import/no-unresolved': 'off',
         'react/destructuring-assignment': 'off',
+        'class-methods-use-this': 'off',
     }
 };

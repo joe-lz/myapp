@@ -16,7 +16,7 @@ const Index = createStackNavigator({
   },
 }, {
   // mode: 'modal',
-  // headerMode: 'none',
+  headerMode: 'none',
 });
 
 export default Index;

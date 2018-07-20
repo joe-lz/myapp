@@ -10,6 +10,7 @@
     "axios": "^0.18.0",
     "lottie-react-native": "^2.3.2",
     "md5": "^2.2.1",
+    "moment": "^2.22.2",
     "polished": "^1.9.3",
     "react": "16.4.1",
     "react-native": "0.56.0",
