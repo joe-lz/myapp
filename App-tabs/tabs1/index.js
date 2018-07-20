@@ -3,6 +3,9 @@ import {
   // Platform, StyleSheet, Text, View, Button,
   StyleSheet, Text, View,
 } from 'react-native';
+import moment from 'moment/min/moment-with-locales';
+
+moment.locale('zh-cn');
 
 type Props = {};
 class Tab1 extends Component<Props> {
@@ -11,6 +14,9 @@ class Tab1 extends Component<Props> {
       <View style={styles.container}>
         <Text>
           tabs
+        </Text>
+        <Text>
+          {moment().fromNow()}
         </Text>
       </View>
     );
