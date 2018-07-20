@@ -12,27 +12,38 @@ import Tab4Screen from './tabs4';
 // stack
 import PageSignScreen from './pages/sign';
 
+import { strings } from '../locales';
+
 // stack页面----------------------------------------------------
 const Tab1Stack = createStackNavigator({
   Tab1: {
     screen: Tab1Screen,
-    navigationOptions: { headerTitle: 'tabs' },
+    navigationOptions: { headerTitle: strings('tabs.tab1') },
   },
   Tab1Detail: PageSignScreen,
 }, {
   // headerMode: 'none',
 });
 const Tab2Stack = createStackNavigator({
-  Tab2: Tab2Screen,
+  Tab2: {
+    screen: Tab2Screen,
+    navigationOptions: { headerTitle: strings('tabs.tab2') },
+  },
   Tab2Detail: PageSignScreen,
 });
 const Tab3Stack = createStackNavigator({
-  Tab3: Tab3Screen,
+  Tab3: {
+    screen: Tab3Screen,
+    navigationOptions: { headerTitle: strings('tabs.tab3') },
+  },
   Tab3Detail: PageSignScreen,
 });
 const Tab4Stack = createStackNavigator({
   Tab4: createStackNavigator({
-    Tab4: Tab4Screen,
+    Tab4: {
+      screen: Tab4Screen,
+      navigationOptions: { headerTitle: strings('tabs.tab4') },
+    },
     Tab4Detail: PageSignScreen,
   }),
   PageSign: PageSignScreen,
@@ -49,7 +60,7 @@ export default createBottomTabNavigator({
   Tab1: {
     screen: Tab1Stack,
     navigationOptions: () => ({
-      tabBarLabel: 'tabs',
+      tabBarLabel: strings('tabs.tab1'),
       tabBarIcon: ({ focused }) => (
         <Image
           source={focused ? require('./files/images/tabIcons/headline2.png') : require('./files/images/tabIcons/headline.png')}
@@ -58,9 +69,42 @@ export default createBottomTabNavigator({
       ),
     }),
   },
-  Tab2: Tab2Stack,
-  Tab3: Tab3Stack,
-  Tab4: Tab4Stack,
+  Tab2: {
+    screen: Tab2Stack,
+    navigationOptions: () => ({
+      tabBarLabel: strings('tabs.tab2'),
+      tabBarIcon: ({ focused }) => (
+        <Image
+          source={focused ? require('./files/images/tabIcons/headline2.png') : require('./files/images/tabIcons/headline.png')}
+          style={[styles.icon]}
+        />
+      ),
+    }),
+  },
+  Tab3: {
+    screen: Tab3Stack,
+    navigationOptions: () => ({
+      tabBarLabel: strings('tabs.tab3'),
+      tabBarIcon: ({ focused }) => (
+        <Image
+          source={focused ? require('./files/images/tabIcons/headline2.png') : require('./files/images/tabIcons/headline.png')}
+          style={[styles.icon]}
+        />
+      ),
+    }),
+  },
+  Tab4: {
+    screen: Tab4Stack,
+    navigationOptions: () => ({
+      tabBarLabel: strings('tabs.tab4'),
+      tabBarIcon: ({ focused }) => (
+        <Image
+          source={focused ? require('./files/images/tabIcons/headline2.png') : require('./files/images/tabIcons/headline.png')}
+          style={[styles.icon]}
+        />
+      ),
+    }),
+  },
 }, {
   tabBarOptions: {
     activeTintColor: '#222',

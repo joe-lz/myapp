@@ -3,14 +3,16 @@ import { createStackNavigator } from 'react-navigation';
 import PageIndexScreen from './pages/index';
 import PageIndexDetailScreen from './pages/index-detail';
 
+import { strings } from '../locales';
+
 const Index = createStackNavigator({
   PageIndex: {
     screen: PageIndexScreen,
-    navigationOptions: { headerTitle: '首页' },
+    navigationOptions: { headerTitle: strings('tabs.tab1') },
   },
   PageIndexDetail: {
     screen: PageIndexDetailScreen,
-    navigationOptions: { headerTitle: '首页detail' },
+    navigationOptions: { headerTitle: strings('tabs.tab1') },
   },
 }, {
   // mode: 'modal',
