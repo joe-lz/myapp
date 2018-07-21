@@ -52,6 +52,7 @@
 		DF3EC0F4210083FE00563707 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3EC0C6210083DD00563707 /* Lottie.framework */; };
 		DF3EC0F5210083FE00563707 /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF3EC0C6210083DD00563707 /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DFA0017A21007EAE00E60C31 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA0017721007E9F00E60C31 /* libRNI18n.a */; };
+		DFBF1FA5210320A7001F024B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DFBF1FA7210320A7001F024B /* InfoPlist.strings */; };
 		E0298708800144DA94C0B569 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00E757BCA63B41C7888A5D95 /* Feather.ttf */; };
 /* End PBXBuildFile section */
 
@@ -438,6 +439,9 @@
 		DF3EC0BE210083DD00563707 /* Lottie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../node_modules/lottie-ios/Lottie.xcodeproj"; sourceTree = "<group>"; };
 		DFA0017121007E9F00E60C31 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		DFA0017B21007ECC00E60C31 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		DFBF1FA6210320A7001F024B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		DFBF1FA8210320AB001F024B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DFBF1FA9210320E7001F024B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -587,6 +591,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				DFBF1FA7210320A7001F024B /* InfoPlist.strings */,
 			);
 			name = myapp;
 			sourceTree = "<group>";
@@ -1259,6 +1264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DFBF1FA5210320A7001F024B /* InfoPlist.strings in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				64E4A782C16347C0A1A5E1B8 /* Entypo.ttf in Resources */,
 				470E20475B7644D18C25EDED /* EvilIcons.ttf in Resources */,
@@ -1442,6 +1448,16 @@
 			);
 			name = LaunchScreen.xib;
 			path = myapp;
+			sourceTree = "<group>";
+		};
+		DFBF1FA7210320A7001F024B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFBF1FA6210320A7001F024B /* zh-Hans */,
+				DFBF1FA8210320AB001F024B /* en */,
+				DFBF1FA9210320E7001F024B /* Base */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
