@@ -33,15 +33,16 @@ export default class Hourly extends Component {
       <Styled.View style={[styles.hour_temperature_item, styles.active]} key={uuidv4()}>
         <Styled.Pbody style={styles.hour_temperature_item_hour} align="center">
           {obj.time}
+          时
         </Styled.Pbody>
         <Image
           resizeMode="contain"
           style={styles.hour_temperature_item_image}
           source={obj.weatherImage}
         />
-        <Styled.Pbody style={styles.Pbody} light type="primaryText" align="center" bold>
+        {/* <Styled.Pbody style={styles.Pbody} light type="primaryText" align="center" bold>
           {obj.weatherState}
-        </Styled.Pbody>
+        </Styled.Pbody> */}
         <Styled.Pbody style={styles.hour_temperature_item_weather} align="center">
           {obj.temperature}
           <Styled.Pcaption style={styles.Pcaption}>
@@ -68,6 +69,7 @@ export default class Hourly extends Component {
   }
 }
 
+const itemheight = 30;
 const styles = StyleSheet.create({
   section_title: {
     padding: constants.padding.m,
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     // paddingTop: constants.padding.s,
     // paddingBottom: constants.padding.s,
     // marginRight: constants.padding.mini,
-    width: 60,
+    width: 59,
   },
   active: {
     // shadowOpacity: 0.2,
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: constants.padding.m,
     marginBottom: constants.padding.m,
     width: '100%',
-    height: 15,
+    height: itemheight,
   },
   hour_temperature_item_weather: {
   },

@@ -3,25 +3,26 @@
  * @Author: DongDong
  * @Date: 2018-07-20 14:30:10
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-20 16:14:33
+ * @Last Modified time: 2018-07-21 15:43:49
  */
 
 import {
-  StyleSheet, Image, StatusBar,
+  StyleSheet, StatusBar,
 } from 'react-native';
 import React, { Component } from 'react';
 import moment from 'moment/min/moment-with-locales';
 
 import Styled from '../../../styled-components';
-import constants from '../../../styled-components/constants';
 import api from '../../../api';
 import {
   curCityNumber, getCurCityName, getAqiState, getWindState,
 } from '../../config';
 import { getFinalData } from './generateData';
 
+import Header from './components/header';
 import Hourly from './components/hourly';
 import Daily from './components/daily';
+// import DailyTest from './components/daily.test';
 import Overview from './components/overview';
 import Detail from './components/detail';
 
@@ -58,22 +59,8 @@ class PageIndex extends Component<Props> {
           barStyle="dark-content"
         />
         <Styled.ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-          <Image
-            style={styles.weather_img}
-            source={require('../../files/images/weather/cloudy.jpg')}
-          />
-          <Styled.View style={[styles.section_body, styles.temperature_info]}>
-            <Styled.H1 style={styles.temperature}>
-              {newRes ? `${newRes.hourly[0].temperature}${newRes.today.temperature.unit}` : null}
-            </Styled.H1>
-            <Styled.Pbody style={styles.Pbody} type="primaryText">
-              {newRes ? `${newRes.detail.cityname}，${newRes.today.weatherState}` : null}
-            </Styled.Pbody>
-            <Styled.Pbody style={styles.pubTime} type="primaryText">
-              {/* 更新时间: */}
-              {newRes ? `${newRes.detail.date}，${newRes.detail.week}` : null}
-            </Styled.Pbody>
-          </Styled.View>
+          {/* <DailyTest /> */}
+          <Header newRes={newRes} />
           <Hourly hourlyData={newRes ? newRes.hourly : null} />
           <Daily dailyData={newRes ? newRes.daily : null} />
           <Overview newRes={newRes} />
@@ -86,28 +73,10 @@ class PageIndex extends Component<Props> {
 
 export default PageIndex;
 
-const mainColor = '#2563F6';
+
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     height: '100%',
-  },
-  weather_img: {
-    // marginTop: constants.padding.xxl,
-    width: '100%',
-    height: 220,
-  },
-  section_body: {
-    padding: constants.padding.m,
-  },
-  temperature_info: {
-  },
-  temperature: {
-    fontSize: 60,
-    color: mainColor,
-    fontWeight: '300',
-  },
-  pubTime: {
-    marginTop: constants.padding.mini,
   },
 });

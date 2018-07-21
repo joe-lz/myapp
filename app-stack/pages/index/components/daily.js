@@ -35,20 +35,20 @@ export default class Daily extends Component {
         dom = (
           <Styled.ViewFlex style={[styles.item_wrapper]} key={uuidv4()}>
             {/* {obj.aqi} */}
-            <Styled.Pbody style={styles.Pbody}>
+            <Styled.Pbody style={styles.week}>
               {obj.time.week}
             </Styled.Pbody>
-            {/* <Styled.Pbody style={styles.weatherState}>
-              {obj.weatherState.to}
-            </Styled.Pbody> */}
             <Styled.View style={styles.weatherState}>
               <Image
                 resizeMode="contain"
                 style={styles.temperature_item_image}
                 source={obj.weatherImage.from}
               />
+              {/* <Styled.Pcaption style={styles.Pcaption} light type="primaryText" align="center" bold>
+                {obj.weatherState.from}
+              </Styled.Pcaption> */}
             </Styled.View>
-            <Styled.Pbody style={styles.Pbody}>
+            <Styled.Pbody style={styles.temperature}>
               {`${obj.temperature.to}/${obj.temperature.from}`}
             </Styled.Pbody>
           </Styled.ViewFlex>
@@ -72,6 +72,7 @@ export default class Daily extends Component {
   }
 }
 
+const itemheight = 30;
 const styles = StyleSheet.create({
   section_title: {
     padding: constants.padding.m,
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
   },
   item_wrapper: {
     marginBottom: constants.padding.m,
+    height: itemheight,
   },
   weatherState: {
     flex: 1,
@@ -93,6 +95,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   temperature_item_image: {
-    height: 15,
+    height: itemheight,
+  },
+  temperature: {
+    lineHeight: itemheight,
+  },
+  week: {
+    lineHeight: itemheight,
   },
 });
