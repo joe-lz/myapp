@@ -2,4 +2,3 @@ node_modules/*.js
 ios/*.js
 android/*.js
 _origin/*.js
-*.test.js

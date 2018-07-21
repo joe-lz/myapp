@@ -24,7 +24,7 @@ export default class Daily extends Component {
 
   generateDaily() {
     const dailyData = [...Array(36).keys()];
-    return dailyData.map((obj, index) => {
+    return dailyData.map((obj) => {
       let dom = null;
       dom = (
         <Styled.ViewFlex style={[styles.item_wrapper]} key={uuidv4()}>
