@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  myapp
+
+  Created by jeodiong on 2018/7/21.
+  Copyright © 2018年 Facebook. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "天气";
+"CFBundleName" = "天气";
+
