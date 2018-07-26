@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-20 13:17:25
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-21 13:08:20
+ * @Last Modified time: 2018-07-21 20:10:41
  */
 
 // Examples
@@ -12,14 +12,14 @@ import styled from 'styled-components';
 import { SafeAreaView } from 'react-navigation';
 
 export const SafeArea = styled(SafeAreaView)`
-  background-color: ${props => props.bg || 'white'};
+  background-color: ${props => props.bg || 'transparent'};
 `;
 export const ScrollView = styled.ScrollView`
-  background-color: ${props => props.bg || 'white'};
+  background-color: ${props => props.bg || 'transparent'};
   width: 100%;
 `;
 export const View = styled.View`
-  background-color: ${props => props.bg || 'white'};
+  background-color: ${props => props.bg || 'transparent'};
   width: 100%;
 `;
 

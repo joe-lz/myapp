@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.10",
     "lottie-react-native": "^2.3.2",
     "md5": "^2.2.1",
     "moment": "^2.22.2",
@@ -15,6 +16,7 @@
     "react": "16.4.1",
     "react-native": "0.56.0",
     "react-native-i18n": "^2.0.15",
+    "react-native-storage": "^0.2.2",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.7.0",
     "react-redux": "^5.0.7",

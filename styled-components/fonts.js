@@ -2,8 +2,8 @@
  * @Description 文字组件
  * @Author: DongDong
  * @Date: 2018-07-20 13:15:53
- * @Last Modified by:   DongDong
- * @Last Modified time: 2018-07-20 13:15:53
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-21 20:36:17
  */
 
 // Examples
@@ -15,9 +15,9 @@ import constants from './constants';
 
 export const Text = styled.Text`
   color: ${(props) => {
-    const color = props.light ? 'light' : 'dark';
+    // const color = props.light ? 'light' : 'dark';
     const type = props.type || 'title';
-    return constants[`${color}`][`${type}`];
+    return constants.theme[`${type}`];
   }};
   text-align: ${props => props.align || 'justify'};
   font-weight: ${props => (props.bold ? constants.fw.l : constants.fw.m)};

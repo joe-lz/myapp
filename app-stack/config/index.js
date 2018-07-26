@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-20 14:30:25
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-20 17:23:37
+ * @Last Modified time: 2018-07-23 22:13:10
  */
 
 
@@ -43,15 +43,16 @@ const getWindState = (data) => {
   if (data <= 1) state = '无风';
   return state;
 };
-//
-const unit = {
-  temp: '℃',
+
+const keyName = {
+  cityArr: 'localCityArr',
+  curCity: 'curCity',
 };
 
 export {
+  keyName,
   curCityNumber,
   getCurCityName,
   getAqiState,
   getWindState,
-  unit,
 };

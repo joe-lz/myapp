@@ -1,3 +1,10 @@
+/*
+ * @Description 天气概况
+ * @Author: DongDong
+ * @Date: 2018-07-21 16:31:46
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-25 10:31:58
+ */
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -10,7 +17,7 @@ export default class Overview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newRes: null,
+      weatherData: null,
     };
   }
 
@@ -19,14 +26,14 @@ export default class Overview extends Component {
 
   // 接收到prop变化
   componentWillReceiveProps(next) {
-    const { newRes } = next;
+    const { weatherData } = next;
     this.setState({
-      newRes,
+      weatherData,
     });
   }
 
   generateOverview() {
-    const { detail, today, daily } = this.state.newRes;
+    const { detail, today, daily } = this.state.weatherData;
     return (
       <Styled.Pbody style={styles.section_body}>
         {/* ${detail.date}，${detail.week}， */}
@@ -36,13 +43,13 @@ export default class Overview extends Component {
   }
 
   render() {
-    const { newRes } = this.state;
+    const { weatherData } = this.state;
     return (
       <Styled.View style={styles.temp}>
-        <Styled.H3 style={styles.section_title} bold>
+        <Styled.H2 style={styles.section_title} bold>
           概览
-        </Styled.H3>
-        {newRes ? this.generateOverview() : <Styled.View />}
+        </Styled.H2>
+        {weatherData ? this.generateOverview() : <Styled.View />}
       </Styled.View>
     );
   }

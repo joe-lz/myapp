@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
+import weatherData from './weatherData';
+import curCity from './curCity';
+import localCitys from './localCitys';
 
-const rn55 = combineReducers({
+const myApp = combineReducers({
   counter,
+  weatherData,
+  curCity,
+  localCitys,
 });
 
-export default rn55;
+export default myApp;

@@ -83,6 +83,7 @@ export const getWeatherImage = (weather, time = 12, sunsetTime = 18, sunriseTime
   const iconArr = [icon0, icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8, icon9, icon10, icon11, icon12, icon13, icon14, icon15, icon16, icon17, icon18, icon19, icon20, icon21, icon22, icon23, icon24, icon25, icon26, icon27, icon28, icon29, icon30, icon31, icon32, icon33, icon34, icon35, icon53, icon99];
   const iconArrNight = [icon0night, icon1night, icon2night, icon3night, icon4night, icon5night, icon6night, icon7night, icon8night, icon9night, icon10night, icon11night, icon12night, icon13night, icon14night, icon15night, icon16night, icon17night, icon18night, icon19night, icon20night, icon21night, icon22night, icon23night, icon24night, icon25night, icon26night, icon27night, icon28night, icon29night, icon30night, icon31night, icon32night, icon33night, icon34night, icon35night, icon53night, icon99night];
   const value = Number(weather);
+  // 夜晚
   if (time < sunriseTime || time >= sunsetTime) {
     if (value === 53) {
       return iconArrNight[36];
@@ -92,6 +93,7 @@ export const getWeatherImage = (weather, time = 12, sunsetTime = 18, sunriseTime
     }
     return iconArrNight[value];
   }
+  // 白天
   if (value === 53) {
     return iconArr[36];
   }
@@ -146,19 +148,19 @@ const generateDaily = (originData) => {
   const allData = aqi.value.map((obj, index) => {
     const newObj = {
       time: {
-        date: moment(sunRiseSet.value[index].from).format('MM/DD'),
-        week: moment(sunRiseSet.value[index].from).format('dddd'),
+        date: moment(sunRiseSet.value[index] ? sunRiseSet.value[index].from : Date.now()).format('MM/DD'),
+        week: moment(sunRiseSet.value[index] ? sunRiseSet.value[index].from : Date.now()).format('dddd'),
       },
       aqi: obj,
       temperature: temperature.value[index],
       weather: weather.value[index],
       weatherState: {
-        from: getWeatherState(weather.value[index].from),
-        to: getWeatherState(weather.value[index].to),
+        from: getWeatherState(weather.value[index] ? weather.value[index].from : 99),
+        to: getWeatherState(weather.value[index] ? weather.value[index].to : 99),
       },
       weatherImage: {
-        from: getWeatherImage(weather.value[index].from),
-        to: getWeatherImage(weather.value[index].to),
+        from: getWeatherImage(weather.value[index] ? weather.value[index].from : 99),
+        to: getWeatherImage(weather.value[index] ? weather.value[index].to : 99),
       },
       wind: {
         direction: wind.direction.value[index],

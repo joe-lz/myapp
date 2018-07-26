@@ -2,8 +2,8 @@
  * @Description 色板生成
  * @Author: DongDong
  * @Date: 2018-07-20 13:14:53
- * @Last Modified by:   DongDong
- * @Last Modified time: 2018-07-20 13:14:53
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-22 22:42:56
  */
 
 import { lighten, darken } from 'polished';
@@ -28,9 +28,7 @@ const dark = {
   secondaryText: lighten(0.55, 'black'),
   disabled: lighten(0.75, 'black'),
   border: lighten(0.85, 'black'),
-  divider: lighten(0.91, 'black'),
   bg: lighten(0.96, 'black'),
-  tableHeader: lighten(0.98, 'black'),
 };
 // 深色背景
 const light = {
@@ -39,10 +37,26 @@ const light = {
   secondaryText: darken(0.35, 'white'),
   disabled: darken(0.55, 'white'),
   border: darken(0.75, 'white'),
-  divider: darken(0.85, 'white'),
   bg: darken(0.91, 'white'),
-  tableHeader: darken(0.96, 'white'),
 };
+
+// 模式
+let mode = 'day'; // day,night
+const curTime = new Date().getHours();
+if (curTime >= 18 || curTime <= 6) {
+  mode = 'night';
+}
+const theme = {
+  mode,
+  title: mode === 'day' ? dark.title : light.title,
+  primaryText: mode === 'day' ? dark.primaryText : light.primaryText,
+  secondaryText: mode === 'day' ? dark.secondaryText : light.secondaryText,
+  disabled: mode === 'day' ? dark.disabled : light.disabled,
+  border: mode === 'day' ? dark.border : light.border,
+  bg: mode === 'day' ? 'white' : '#1F2123',
+  bgImage: mode === 'day' ? dark.bg : light.bg,
+};
+
 // 品牌色的应用
 const palettes = {
   brand: colors.main6,
@@ -59,8 +73,9 @@ const palettes = {
 export {
   colors,
   palettes,
-  light,
-  dark,
+  theme,
+  // light,
+  // dark,
 };
 
 // palettes: ----------------------
@@ -79,6 +94,4 @@ export {
 // /secondaryText
 // /disabled
 // /border
-// /divider
 // /bg
-// /tableHeader

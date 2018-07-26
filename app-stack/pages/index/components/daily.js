@@ -1,3 +1,11 @@
+/*
+ * @Description 未来每日天气
+ * @Author: DongDong
+ * @Date: 2018-07-21 16:30:51
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-26 11:47:05
+ */
+
 import React, { Component } from 'react';
 import {
   StyleSheet, Image,
@@ -61,9 +69,9 @@ export default class Daily extends Component {
   render() {
     return (
       <Styled.View>
-        <Styled.H3 style={styles.section_title} bold>
+        <Styled.H2 style={styles.section_title} bold>
           7天
-        </Styled.H3>
+        </Styled.H2>
         <Styled.View style={[styles.section_body]}>
           {this.state.dailyDom}
         </Styled.View>

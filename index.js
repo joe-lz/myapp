@@ -14,6 +14,7 @@ import { name as appName } from './app.json';
 const loggerMiddleware = createLogger();
 const store = createStore(
   reducers,
+  // applyMiddleware(thunkMiddleware),
   applyMiddleware(thunkMiddleware, loggerMiddleware),
 );
 

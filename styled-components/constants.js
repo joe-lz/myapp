@@ -3,11 +3,11 @@
  * @Author: DongDong
  * @Date: 2018-07-20 13:14:18
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-20 13:14:42
+ * @Last Modified time: 2018-07-21 20:34:43
  */
 
 import {
-  palettes, light, dark,
+  palettes, theme,
 } from './colorsGenerator';
 
 const fs = {
@@ -19,6 +19,8 @@ const lh = {
 
 const fw = { s: '200', m: '400', l: '700' };
 
+const icon = { s: '16', m: '24', l: '44' };
+
 const padding = {
   mini: 5, s: 10, m: 15, l: 30, xl: 50, xxl: 80,
 };
@@ -26,5 +28,5 @@ const padding = {
 const radius = { mini: 2, s: 4, m: 6 };
 
 export default {
-  fs, lh, fw, padding, radius, palettes, light, dark,
+  fs, lh, fw, icon, padding, radius, palettes, theme,
 };

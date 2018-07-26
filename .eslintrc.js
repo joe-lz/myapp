@@ -3,7 +3,10 @@ module.exports = {
     plugins: ['jest', 'react', 'react-native'],
     parser: 'babel-eslint',
     env: {
-        'jest/globals': true
+        'jest/globals': true,
+    },
+    "globals": {
+        "storage": true,
     },
     rules: {
         'max-len': 'off',
@@ -16,5 +19,6 @@ module.exports = {
         'import/no-unresolved': 'off',
         'react/destructuring-assignment': 'off',
         'class-methods-use-this': 'off',
+        'camelcase': 'off',
     }
 };

@@ -1,3 +1,10 @@
+/*
+ * @Description 未来每小时天气
+ * @Author: DongDong
+ * @Date: 2018-07-21 16:31:31
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-26 13:42:19
+ */
 import React, { Component } from 'react';
 import {
   StyleSheet, Image,
@@ -12,6 +19,8 @@ export default class Hourly extends Component {
     super(props);
     this.state = {
       hourlyDom: null,
+      hourlyData: null,
+      showImage: true,
     };
   }
 
@@ -24,8 +33,20 @@ export default class Hourly extends Component {
     if (hourlyData) {
       this.setState({
         hourlyDom: this.generateHourly(hourlyData),
+        hourlyData,
       });
     }
+  }
+
+  changeShowImage() {
+    const { hourlyData, showImage } = this.state;
+    this.setState({
+      showImage: !showImage,
+    }, () => {
+      this.setState({
+        hourlyDom: this.generateHourly(hourlyData),
+      });
+    });
   }
 
   generateHourly(hourlyData) {
@@ -37,13 +58,13 @@ export default class Hourly extends Component {
         </Styled.Pbody>
         <Image
           resizeMode="contain"
-          style={styles.hour_temperature_item_image}
+          style={[styles.hour_temperature_item_image, !this.state.showImage ? styles.displayNone : '']}
           source={obj.weatherImage}
         />
-        {/* <Styled.Pbody style={styles.Pbody} light type="primaryText" align="center" bold>
+        <Styled.Pbody style={[styles.hour_temperature_item_weatherState, this.state.showImage ? styles.displayNone : '']} light type="primaryText" align="center" bold>
           {obj.weatherState}
-        </Styled.Pbody> */}
-        <Styled.Pbody style={styles.hour_temperature_item_weather} align="center">
+        </Styled.Pbody>
+        <Styled.Pbody style={[styles.hour_temperature_item_weather]} align="center">
           {obj.temperature}
           <Styled.Pcaption style={styles.Pcaption}>
             {obj.unit}
@@ -55,16 +76,23 @@ export default class Hourly extends Component {
 
   render() {
     return (
+      // <TouchableHighlight
+      //   underlayColor="transparent"
+      //   onPress={() => { this.changeShowImage(); }}
+      // >
+
+      // </TouchableHighlight>
       <Styled.View style={styles.container}>
-        <Styled.H3 style={styles.section_title} bold>
+        <Styled.H2 style={styles.section_title} bold>
           24h
-        </Styled.H3>
+        </Styled.H2>
         <Styled.ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <Styled.View style={[styles.section_body, styles.hour_temperature_wrapper]}>
             {this.state.hourlyDom}
           </Styled.View>
         </Styled.ScrollView>
       </Styled.View>
+
     );
   }
 }
@@ -89,7 +117,7 @@ const styles = StyleSheet.create({
     // paddingTop: constants.padding.s,
     // paddingBottom: constants.padding.s,
     // marginRight: constants.padding.mini,
-    width: 59,
+    width: 57,
   },
   active: {
     // shadowOpacity: 0.2,
@@ -105,6 +133,16 @@ const styles = StyleSheet.create({
     marginBottom: constants.padding.m,
     width: '100%',
     height: itemheight,
+  },
+  hour_temperature_item_weatherState: {
+    marginTop: constants.padding.m,
+    marginBottom: constants.padding.m,
+    width: '100%',
+    height: itemheight,
+    lineHeight: itemheight,
+  },
+  displayNone: {
+    display: 'none',
   },
   hour_temperature_item_weather: {
   },

@@ -1,3 +1,10 @@
+/*
+ * @Description 天气页头部
+ * @Author: DongDong
+ * @Date: 2018-07-21 16:31:18
+ * @Last Modified by: DongDong
+ * @Last Modified time: 2018-07-25 13:31:15
+ */
 import React, { Component } from 'react';
 import {
   StyleSheet, Image,
@@ -10,7 +17,7 @@ export default class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newRes: null,
+      weatherData: null,
     };
   }
 
@@ -19,31 +26,30 @@ export default class Detail extends Component {
 
   // 接收到prop变化
   componentWillReceiveProps(next) {
-    const { newRes } = next;
+    const { weatherData } = next;
     this.setState({
-      newRes,
+      weatherData,
     });
   }
 
   render() {
-    const { newRes } = this.state;
+    const { weatherData } = this.state;
     return (
-      <Styled.View style={styles.temp}>
-
+      <Styled.View style={styles.container}>
         <Image
           style={styles.weather_img}
           source={require('../../../files/images/weather/cloudy.jpg')}
         />
         <Styled.View style={[styles.section_body, styles.temperature_info]}>
           <Styled.H1 style={styles.temperature}>
-            {newRes ? `${newRes.hourly[0].temperature}${newRes.today.temperature.unit}` : null}
+            {weatherData ? `${weatherData.hourly[0].temperature}${weatherData.today.temperature.unit}` : null}
           </Styled.H1>
           <Styled.Pbody style={styles.Pbody} type="primaryText">
-            {newRes ? `${newRes.detail.cityname}，${newRes.today.weatherState}` : null}
+            {weatherData ? `${weatherData.detail.cityname}，${weatherData.today.weatherState}` : null}
           </Styled.Pbody>
-          <Styled.Pbody style={styles.pubTime} type="primaryText">
+          <Styled.Pbody style={styles.cutTime} type="primaryText">
             {/* 更新时间: */}
-            {newRes ? `${newRes.detail.date}，${newRes.detail.week}` : null}
+            {weatherData ? `${weatherData.detail.date}，${weatherData.detail.week}` : null}
           </Styled.Pbody>
         </Styled.View>
       </Styled.View>
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
     color: mainColor,
     fontWeight: '300',
   },
-  pubTime: {
+  cutTime: {
     marginTop: constants.padding.mini,
   },
 });
