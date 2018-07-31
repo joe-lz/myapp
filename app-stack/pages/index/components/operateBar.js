@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-21 16:30:51
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-26 11:47:56
+ * @Last Modified time: 2018-07-30 16:15:53
  */
 
 import React, { Component } from 'react';
@@ -150,8 +150,11 @@ class OperateBar extends Component {
             underlayColor="transparent"
             onPress={() => { this.openLink('http://m.weather.com.cn'); }}
           >
-            <Styled.Pcaption style={styles.dataOrigin} type="primaryText">
-              中央天气
+            <Styled.Pcaption style={styles.dataOrigin_title} type="primaryText">
+              数据来源：
+              <Styled.Pcaption style={styles.dataOrigin} type="primaryText">
+                中央天气
+              </Styled.Pcaption>
             </Styled.Pcaption>
           </TouchableHighlight>
 
@@ -232,6 +235,9 @@ const styles = StyleSheet.create({
   },
   operateBarFill: {
     flex: 1,
+  },
+  dataOrigin_title: {
+    lineHeight: barHeight,
   },
   dataOrigin: {
     lineHeight: barHeight,

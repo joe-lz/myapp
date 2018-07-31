@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-21 16:30:51
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-26 11:47:05
+ * @Last Modified time: 2018-07-30 15:42:27
  */
 
 import React, { Component } from 'react';
@@ -11,11 +11,12 @@ import {
   StyleSheet, Image,
 } from 'react-native';
 import uuidv4 from 'uuid/v4';
+import { connect } from 'react-redux';
 
 import Styled from '../../../../styled-components';
 import constants from '../../../../styled-components/constants';
 
-export default class Daily extends Component {
+class Daily extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,11 +25,7 @@ export default class Daily extends Component {
   }
 
   componentDidMount() {
-  }
-
-  // 接收到prop变化
-  componentWillReceiveProps(next) {
-    const { dailyData } = next;
+    const { dailyData } = this.props;
     if (dailyData) {
       this.setState({
         dailyDom: this.generateDaily(dailyData),
@@ -42,7 +39,6 @@ export default class Daily extends Component {
       if (index > 0 && index < 8) {
         dom = (
           <Styled.ViewFlex style={[styles.item_wrapper]} key={uuidv4()}>
-            {/* {obj.aqi} */}
             <Styled.Pbody style={styles.week}>
               {obj.time.week}
             </Styled.Pbody>
@@ -52,9 +48,6 @@ export default class Daily extends Component {
                 style={styles.temperature_item_image}
                 source={obj.weatherImage.from}
               />
-              {/* <Styled.Pcaption style={styles.Pcaption} light type="primaryText" align="center" bold>
-                {obj.weatherState.from}
-              </Styled.Pcaption> */}
             </Styled.View>
             <Styled.Pbody style={styles.temperature}>
               {`${obj.temperature.to}/${obj.temperature.from}`}
@@ -79,6 +72,14 @@ export default class Daily extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    weatherData: state.weatherData,
+  };
+}
+export default connect(
+  mapStateToProps,
+)(Daily);
 
 const itemheight = 30;
 const styles = StyleSheet.create({
@@ -97,7 +98,6 @@ const styles = StyleSheet.create({
   },
   weatherState: {
     flex: 1,
-    // textAlign: 'center',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',

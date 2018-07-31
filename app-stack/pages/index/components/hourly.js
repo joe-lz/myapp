@@ -3,18 +3,19 @@
  * @Author: DongDong
  * @Date: 2018-07-21 16:31:31
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-26 13:42:19
+ * @Last Modified time: 2018-07-30 15:37:01
  */
 import React, { Component } from 'react';
 import {
   StyleSheet, Image,
 } from 'react-native';
 import uuidv4 from 'uuid/v4';
+import { connect } from 'react-redux';
 
 import Styled from '../../../../styled-components';
 import constants from '../../../../styled-components/constants';
 
-export default class Hourly extends Component {
+class Hourly extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,17 +26,11 @@ export default class Hourly extends Component {
   }
 
   componentDidMount() {
-  }
-
-  // 接收到prop变化
-  componentWillReceiveProps(next) {
-    const { hourlyData } = next;
-    if (hourlyData) {
-      this.setState({
-        hourlyDom: this.generateHourly(hourlyData),
-        hourlyData,
-      });
-    }
+    const { hourlyData } = this.props;
+    this.setState({
+      hourlyDom: this.generateHourly(hourlyData),
+      hourlyData,
+    });
   }
 
   changeShowImage() {
@@ -76,12 +71,6 @@ export default class Hourly extends Component {
 
   render() {
     return (
-      // <TouchableHighlight
-      //   underlayColor="transparent"
-      //   onPress={() => { this.changeShowImage(); }}
-      // >
-
-      // </TouchableHighlight>
       <Styled.View style={styles.container}>
         <Styled.H2 style={styles.section_title} bold>
           24h
@@ -96,6 +85,16 @@ export default class Hourly extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    weatherData: state.weatherData,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+)(Hourly);
 
 const itemheight = 30;
 const styles = StyleSheet.create({

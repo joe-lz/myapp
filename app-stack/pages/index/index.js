@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-20 14:30:10
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-26 15:44:31
+ * @Last Modified time: 2018-07-31 17:26:05
  */
 
 import {
@@ -79,6 +79,7 @@ class PageIndex extends Component<Props> {
 
     return (
       <Styled.SafeArea style={styles.SafeArea}>
+        {/* forceInset={{ top: 'never' }} */}
         {MyStatusBar()}
         <WeatherPage curCity={curCity} />
         <OperateBar />

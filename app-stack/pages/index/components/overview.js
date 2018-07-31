@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-21 16:31:46
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-25 10:31:58
+ * @Last Modified time: 2018-07-30 15:49:40
  */
 import React, { Component } from 'react';
 import {
@@ -22,11 +22,7 @@ export default class Overview extends Component {
   }
 
   componentDidMount() {
-  }
-
-  // 接收到prop变化
-  componentWillReceiveProps(next) {
-    const { weatherData } = next;
+    const { weatherData } = this.props;
     this.setState({
       weatherData,
     });

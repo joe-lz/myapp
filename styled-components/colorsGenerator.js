@@ -3,7 +3,7 @@
  * @Author: DongDong
  * @Date: 2018-07-20 13:14:53
  * @Last Modified by: DongDong
- * @Last Modified time: 2018-07-22 22:42:56
+ * @Last Modified time: 2018-07-31 20:43:30
  */
 
 import { lighten, darken } from 'polished';
@@ -32,12 +32,18 @@ const dark = {
 };
 // 深色背景
 const light = {
-  title: darken(0, 'white'),
-  primaryText: darken(0.15, 'white'),
-  secondaryText: darken(0.35, 'white'),
-  disabled: darken(0.55, 'white'),
-  border: darken(0.75, 'white'),
-  bg: darken(0.91, 'white'),
+  // title: darken(0, 'white'),
+  // primaryText: darken(0.15, 'white'),
+  // secondaryText: darken(0.35, 'white'),
+  // disabled: darken(0.55, 'white'),
+  // border: darken(0.75, 'white'),
+  // bg: darken(0.91, 'white'),
+  title: darken(0.1, 'white'),
+  primaryText: darken(0.3, 'white'),
+  secondaryText: darken(0.5, 'white'),
+  disabled: darken(0.7, 'white'),
+  border: darken(0.8, 'white'),
+  bg: darken(0.9, 'white'),
 };
 
 // 模式
@@ -55,6 +61,7 @@ const theme = {
   border: mode === 'day' ? dark.border : light.border,
   bg: mode === 'day' ? 'white' : '#1F2123',
   bgImage: mode === 'day' ? dark.bg : light.bg,
+  active: mode === 'day' ? '#2563F6' : '#C0DCFA',
 };
 
 // 品牌色的应用
