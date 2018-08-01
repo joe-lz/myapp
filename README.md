@@ -1,5 +1,5 @@
 <p align='center'>
-<img width="150px" src="https://ws3.sinaimg.cn/large/006tKfTcgy1ftu053purrj30ca042t8o.jpg">
+<img width="300px" src="https://ws3.sinaimg.cn/large/006tKfTcgy1ftu0dgyp7sj30a704zjr9.jpg">
 </p>
 
 <!-- # Install
