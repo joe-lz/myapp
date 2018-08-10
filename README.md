@@ -18,7 +18,7 @@
 1. 多语言支持
 2. 白天/夜晚模式
 3. 添加/删除城市
-4. 天气动画效果（添加中）
+4. 天气动画效果（添加中），[动画制作问题解决](https://juejin.im/post/5aa76a056fb9a028dd4de54b)
 
 # Screenshots
 <p align='center'>
