@@ -1,8 +1,14 @@
+# Apps
+<a href="https://github.com/jeodiong/myapp/tree/app-weather/18.7.21.1.changecity" target="_blank">
+<img width="200px" src="https://ws3.sinaimg.cn/large/006tKfTcgy1ftu0dgyp7sj30a704zjr9.jpg">
+</a>
+
 # Steps
 - 1、react-native init myapps
 - 2、react-native run-ios --simulator="iPhone X"
 - 3、pod init[change pod file like this](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html)
 - 4、pod install
+
 # start
 - [react-native-admob](https://github.com/sbugert/react-native-admob)
 - [react-native-i18n](https://github.com/AlexanderZaytsev/react-native-i18n)
@@ -15,8 +21,3 @@
 - [styled-components polish]
 - [react-native-typography](https://github.com/hectahertz/react-native-typography)
 - [react-native-image-picker](https://github.com/react-community/react-native-image-picker)
-
-# Apps
-<a href="https://github.com/jeodiong/myapp/tree/app-weather/18.7.21.1.changecity" target="_blank">
-<img width="300px" src="https://ws3.sinaimg.cn/large/006tKfTcgy1ftu0dgyp7sj30a704zjr9.jpg">
-</a>
